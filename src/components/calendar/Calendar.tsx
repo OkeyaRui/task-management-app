@@ -102,6 +102,11 @@ export const Calendar: React.FC<CalendarProps> = ({
           const isHolidayDate = isHoliday(day.date)
           const holidayName = getHolidayName(day.date)
           
+          // 曜日判定（0=日曜日, 1=月曜日, ..., 6=土曜日）
+          const dayOfWeek = new Date(day.date).getDay()
+          const isSunday = dayOfWeek === 0
+          const isSaturday = dayOfWeek === 6
+          
           return (
             <button
               key={day.date}
@@ -109,7 +114,13 @@ export const Calendar: React.FC<CalendarProps> = ({
               className={cn(
                 'p-2 sm:p-3 text-left border-r border-b border-gray-200 hover:bg-gray-50 transition-colors min-h-[80px] sm:min-h-[100px]',
                 !day.isCurrentMonth && 'text-gray-400 bg-gray-50',
-                day.isToday && 'bg-primary-50 border-primary-200',
+                // 今日の強調表示（四角い枠）
+                day.isToday && 'ring-2 ring-primary-500 ring-offset-1',
+                // 日曜日または祝日の背景色
+                (isSunday || isHolidayDate) && 'bg-red-50',
+                // 土曜日の背景色
+                isSaturday && !isHolidayDate && 'bg-blue-50',
+                // 選択された日
                 isSelected && 'bg-primary-100 border-primary-300',
                 'focus:outline-none focus:ring-2 focus:ring-primary-500'
               )}
