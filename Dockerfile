@@ -1,5 +1,5 @@
-# Node.js 18の公式イメージを使用
-FROM node:18-alpine AS base
+# Node.js 20 の公式イメージを使用（Supabase SDK 推奨）
+FROM node:20-alpine AS base
 
 # 依存関係をインストールするステージ
 FROM base AS deps

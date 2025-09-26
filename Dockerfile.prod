@@ -1,5 +1,5 @@
 # 本番環境用のマルチステージビルド
-FROM node:18-alpine AS base
+FROM node:20-alpine AS base
 
 # 依存関係をインストールするステージ
 FROM base AS deps
@@ -8,8 +8,8 @@ WORKDIR /app
 
 # package.jsonをコピー
 COPY package.json ./
-# 依存関係をインストール
-RUN npm install --only=production --no-package-lock
+# 全依存関係をインストール（devDependenciesも含む）
+RUN npm install --no-package-lock
 
 # ソースコードをビルドするステージ
 FROM base AS builder

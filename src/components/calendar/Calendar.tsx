@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { CalendarDay } from '@/types'
+import { getDayOfMonthJST } from '@/lib/tz'
 
 interface CalendarProps {
   year: number
@@ -117,7 +118,7 @@ export const Calendar: React.FC<CalendarProps> = ({
                   day.isToday && 'text-primary-600 font-bold',
                   !day.isCurrentMonth && 'text-gray-400'
                 )}>
-                  {new Date(day.date).getDate()}
+                  {getDayOfMonthJST(day.date)}
                 </span>
                 {taskCount > 0 && (
                   <span className="text-xs text-gray-500 hidden sm:block">

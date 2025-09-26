@@ -26,36 +26,38 @@ export const getCurrentDateTime = (): string => {
 }
 
 export const addDays = (date: string, days: number): string => {
-  return dayjs(date).add(days, 'day').format('YYYY-MM-DD')
+  return dayjs.tz(date, JST).add(days, 'day').format('YYYY-MM-DD')
 }
 
 export const isToday = (date: string): boolean => {
-  return dayjs(date).tz(JST).isSame(dayjs().tz(JST), 'day')
+  return dayjs.tz(date, JST).isSame(dayjs().tz(JST), 'day')
 }
 
 export const isPast = (date: string): boolean => {
-  return dayjs(date).tz(JST).isBefore(dayjs().tz(JST), 'day')
+  return dayjs.tz(date, JST).isBefore(dayjs().tz(JST), 'day')
 }
 
 export const isFuture = (date: string): boolean => {
-  return dayjs(date).tz(JST).isAfter(dayjs().tz(JST), 'day')
+  return dayjs.tz(date, JST).isAfter(dayjs().tz(JST), 'day')
 }
 
 export const getWeekStart = (date: string, weekStart = 0): string => {
-  return dayjs(date).startOf('week').add(weekStart, 'day').format('YYYY-MM-DD')
+  return dayjs.tz(date, JST).startOf('week').add(weekStart, 'day').format('YYYY-MM-DD')
 }
 
 export const getMonthStart = (date: string): string => {
-  return dayjs(date).startOf('month').format('YYYY-MM-DD')
+  return dayjs.tz(date, JST).startOf('month').format('YYYY-MM-DD')
 }
 
 export const getMonthEnd = (date: string): string => {
-  return dayjs(date).endOf('month').format('YYYY-MM-DD')
+  return dayjs.tz(date, JST).endOf('month').format('YYYY-MM-DD')
 }
 
 export const getCalendarDays = (year: number, month: number, weekStart = 0) => {
-  const startOfMonth = dayjs().year(year).month(month - 1).startOf('month')
-  const endOfMonth = dayjs().year(year).month(month - 1).endOf('month')
+  const monthString = String(month).padStart(2, '0')
+  const base = dayjs.tz(`${year}-${monthString}-01`, JST)
+  const startOfMonth = base.startOf('month')
+  const endOfMonth = base.endOf('month')
   
   const startOfCalendar = startOfMonth.startOf('week').add(weekStart, 'day')
   const endOfCalendar = endOfMonth.endOf('week').add(weekStart, 'day')
@@ -67,11 +69,15 @@ export const getCalendarDays = (year: number, month: number, weekStart = 0) => {
     days.push({
       date: current.format('YYYY-MM-DD'),
       isCurrentMonth: current.isSame(startOfMonth, 'month'),
-      isToday: current.isSame(dayjs(), 'day'),
+      isToday: current.isSame(dayjs().tz(JST), 'day'),
       tasks: []
     })
     current = current.add(1, 'day')
   }
   
   return days
+}
+
+export const getDayOfMonthJST = (date: string): number => {
+  return Number(dayjs.tz(date, JST).format('D'))
 }
