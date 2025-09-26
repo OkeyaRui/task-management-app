@@ -59,8 +59,9 @@ export const getCalendarDays = (year: number, month: number, weekStart = 0) => {
   const startOfMonth = base.startOf('month')
   const endOfMonth = base.endOf('month')
   
-  const startOfCalendar = startOfMonth.startOf('week').add(weekStart, 'day')
-  const endOfCalendar = endOfMonth.endOf('week').add(weekStart, 'day')
+  // 週の開始日を正しく設定
+  const startOfCalendar = startOfMonth.startOf('week')
+  const endOfCalendar = endOfMonth.endOf('week')
   
   const days = []
   let current = startOfCalendar

@@ -91,7 +91,8 @@ export default function Home() {
       
       // Update calendar days with task counts
       const allTasks = upcomingTasksData || []
-      const updatedCalendarDays = calendarDays.map(day => ({
+      const currentCalendarDays = getCalendarDays(year, month)
+      const updatedCalendarDays = currentCalendarDays.map(day => ({
         ...day,
         tasks: allTasks.filter(task => task.due_date === day.date)
       }))
@@ -100,7 +101,7 @@ export default function Home() {
     } catch (error) {
       console.error('Error loading tasks:', error)
     }
-  }, [user, selectedDate, calendarDays])
+  }, [user, selectedDate])
   
   // Check auth status
   useEffect(() => {
@@ -172,10 +173,22 @@ export default function Home() {
   
   const handlePreviousMonth = () => {
     setCurrentDate(prev => new Date(prev.getFullYear(), prev.getMonth() - 1))
+    // 月切り替え後にタスクを再読み込み
+    setTimeout(() => {
+      if (user) {
+        loadTasks()
+      }
+    }, 100)
   }
   
   const handleNextMonth = () => {
     setCurrentDate(prev => new Date(prev.getFullYear(), prev.getMonth() + 1))
+    // 月切り替え後にタスクを再読み込み
+    setTimeout(() => {
+      if (user) {
+        loadTasks()
+      }
+    }, 100)
   }
   
   const handleToday = () => {
