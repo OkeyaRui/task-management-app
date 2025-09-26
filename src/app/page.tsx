@@ -311,9 +311,12 @@ export default function Home() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="max-w-md w-full mx-4">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">
               タスク管理アプリ
             </h1>
+            <div className="text-sm text-gray-500 mb-4">
+              管理者: 桶谷琉斐
+            </div>
             <p className="text-gray-600 mb-6">
               カレンダーを主ビューとしたシンプルで見やすいタスク管理アプリです。
             </p>
