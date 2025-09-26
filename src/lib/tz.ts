@@ -41,7 +41,7 @@ export const isFuture = (date: string): boolean => {
   return dayjs.tz(date, JST).isAfter(dayjs().tz(JST), 'day')
 }
 
-export const getWeekStart = (date: string, weekStart = 0): string => {
+export const getWeekStart = (date: string, weekStart = 1): string => {
   return dayjs.tz(date, JST).startOf('week').add(weekStart, 'day').format('YYYY-MM-DD')
 }
 
@@ -59,9 +59,8 @@ export const getCalendarDays = (year: number, month: number, weekStart = 1) => {
   const startOfMonth = base.startOf('month')
   const endOfMonth = base.endOf('month')
   
-  // 月曜日開始の週の開始日を計算
-  const startOfCalendar = startOfMonth.startOf('week').add(1, 'day')
-  const endOfCalendar = endOfMonth.endOf('week').add(1, 'day')
+  const startOfCalendar = startOfMonth.startOf('week').add(weekStart, 'day')
+  const endOfCalendar = endOfMonth.endOf('week').add(weekStart, 'day')
   
   const days = []
   let current = startOfCalendar
