@@ -295,7 +295,7 @@ export default function Home() {
   
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 mx-auto"></div>
           <p className="mt-2 text-gray-600">読み込み中...</p>
@@ -308,7 +308,7 @@ export default function Home() {
     const supabaseConfigured = isSupabaseConfigured()
     
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="max-w-md w-full mx-4">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 text-center">
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
@@ -324,11 +324,11 @@ export default function Home() {
             </div>
             
             {/* アップデート情報 */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-              <h3 className="text-sm font-medium text-blue-800 mb-2">
+            <div className="bg-primary-100 border border-primary-200 rounded-lg p-4 mb-6">
+              <h3 className="text-sm font-medium text-primary-800 mb-2">
                 📢 システムアップデート情報
               </h3>
-              <div className="text-xs text-blue-700 space-y-2">
+              <div className="text-xs text-primary-700 space-y-2">
                 <div className="flex justify-between items-start">
                   <span className="font-medium">2025-01-27 14:30</span>
                   <div className="text-right flex-1 ml-2">
@@ -350,11 +350,11 @@ export default function Home() {
             </div>
             
             {/* 今後のアップデート情報 */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-              <h3 className="text-sm font-medium text-blue-800 mb-2">
+            <div className="bg-primary-100 border border-primary-200 rounded-lg p-4 mb-6">
+              <h3 className="text-sm font-medium text-primary-800 mb-2">
                 🚀 今後のアップデート情報
               </h3>
-              <div className="text-xs text-blue-700 space-y-2">
+              <div className="text-xs text-primary-700 space-y-2">
                 <div className="flex justify-between items-start">
                   <span className="font-medium">予定中</span>
                   <div className="text-right flex-1 ml-2">
@@ -365,7 +365,7 @@ export default function Home() {
                     <p>• データエクスポート機能</p>
                   </div>
                 </div>
-                <div className="text-xs text-blue-600 mt-2 italic">
+                <div className="text-xs text-primary-600 mt-2 italic">
                   ※ アップデート予定は変更される場合があります
                 </div>
               </div>
@@ -445,7 +445,7 @@ export default function Home() {
   }
   
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

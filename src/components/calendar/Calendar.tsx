@@ -119,7 +119,7 @@ export const Calendar: React.FC<CalendarProps> = ({
                 // 日曜日または祝日の背景色
                 (isSunday || isHolidayDate) && 'bg-red-50',
                 // 土曜日の背景色
-                isSaturday && !isHolidayDate && 'bg-blue-50',
+                isSaturday && !isHolidayDate && 'bg-primary-100',
                 // 選択された日
                 isSelected && 'bg-primary-100 border-primary-300',
                 'focus:outline-none focus:ring-2 focus:ring-primary-500'
