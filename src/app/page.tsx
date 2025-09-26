@@ -312,14 +312,40 @@ export default function Home() {
         <div className="max-w-md w-full mx-4">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 text-center">
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              タスク管理アプリ
+              タスク管理システム
             </h1>
             <div className="text-sm text-gray-500 mb-4">
               運営・管理：桶谷琉斐
             </div>
             <p className="text-gray-600 mb-6">
-              カレンダーを主ビューとしたシンプルで見やすいタスク管理アプリです。
+              自由自在にタスクを管理。ビジネスでもプライベートでも、あなたに寄り添うシステム。
             </p>
+            
+            {/* アップデート情報 */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+              <h3 className="text-sm font-medium text-blue-800 mb-2">
+                📢 システムアップデート情報
+              </h3>
+              <div className="text-xs text-blue-700 space-y-2">
+                <div className="flex justify-between items-start">
+                  <span className="font-medium">2025-01-27</span>
+                  <div className="text-right flex-1 ml-2">
+                    <p>• カレンダー表示の改善（土日祝日の色分け）</p>
+                    <p>• 祝日データの追加（2024-2025年）</p>
+                    <p>• 月切り替え時の日付ずれ修正</p>
+                    <p>• ログイン画面のデザイン更新</p>
+                  </div>
+                </div>
+                <div className="flex justify-between items-start">
+                  <span className="font-medium">2025-01-26</span>
+                  <div className="text-right flex-1 ml-2">
+                    <p>• グレゴリオ暦カレンダー対応</p>
+                    <p>• 祝日表示機能の実装</p>
+                    <p>• 管理者情報の表示追加</p>
+                  </div>
+                </div>
+              </div>
+            </div>
             
             {!supabaseConfigured && (
               <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
