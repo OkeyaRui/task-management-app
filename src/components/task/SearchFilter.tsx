@@ -40,12 +40,12 @@ export const SearchFilter: React.FC<SearchFilterProps> = ({
   const hasActiveFilters = searchQuery || statusFilter || priorityFilter
   
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+    <div className="bg-primary-50 rounded-lg shadow-sm border border-primary-200 p-4">
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
         {/* Search */}
         <div className="flex-1">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary-400" size={16} />
             <Input
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}

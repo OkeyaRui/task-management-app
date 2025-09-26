@@ -120,10 +120,10 @@ export const TaskItem: React.FC<TaskItemProps> = ({
             </Button>
             
             {showMenu && (
-              <div className="absolute right-0 top-8 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-10">
+              <div className="absolute right-0 top-8 w-48 bg-primary-50 rounded-lg shadow-lg border border-primary-200 z-10">
                 <button
                   onClick={handleEdit}
-                  className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-2"
+                  className="w-full px-4 py-2 text-left text-sm text-primary-700 hover:bg-primary-100 flex items-center space-x-2"
                 >
                   <Edit size={14} />
                   <span>編集</span>
