@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { CalendarDay } from '@/types'
-import { getDayOfMonthJST } from '@/lib/tz'
+import { getDayOfMonthJST, isHoliday, getHolidayName } from '@/lib/tz'
 
 interface CalendarProps {
   year: number
@@ -26,7 +26,7 @@ export const Calendar: React.FC<CalendarProps> = ({
   onNextMonth,
   onToday
 }) => {
-  const weekDays = ['月', '火', '水', '木', '金', '土', '日']
+  const weekDays = ['日', '月', '火', '水', '木', '金', '土']
   
   const formatMonthYear = (year: number, month: number) => {
     return `${year}年${month}月`
@@ -99,6 +99,8 @@ export const Calendar: React.FC<CalendarProps> = ({
           const isSelected = selectedDate === day.date
           const taskCount = getTaskCount(day)
           const topTasks = getTopTasks(day)
+          const isHolidayDate = isHoliday(day.date)
+          const holidayName = getHolidayName(day.date)
           
           return (
             <button
@@ -116,9 +118,10 @@ export const Calendar: React.FC<CalendarProps> = ({
                 <span className={cn(
                   'text-xs sm:text-sm font-medium',
                   day.isToday && 'text-primary-600 font-bold',
-                  !day.isCurrentMonth && 'text-gray-400'
+                  !day.isCurrentMonth && 'text-gray-400',
+                  isHolidayDate && 'text-red-600 font-bold'
                 )}>
-                  {new Date(day.date).getDate()}
+                  {getDayOfMonthJST(day.date)}
                 </span>
                 {taskCount > 0 && (
                   <span className="text-xs text-gray-500 hidden sm:block">
@@ -126,6 +129,13 @@ export const Calendar: React.FC<CalendarProps> = ({
                   </span>
                 )}
               </div>
+              
+              {/* Holiday name */}
+              {isHolidayDate && holidayName && (
+                <div className="text-xs text-red-600 font-medium mb-1 truncate">
+                  {holidayName}
+                </div>
+              )}
               
               {/* Task indicators */}
               {topTasks.length > 0 && (
