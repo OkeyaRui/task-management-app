@@ -315,7 +315,7 @@ export default function Home() {
               タスク管理アプリ
             </h1>
             <div className="text-sm text-gray-500 mb-4">
-              管理者: 桶谷琉斐
+              運営・管理：桶谷琉斐
             </div>
             <p className="text-gray-600 mb-6">
               カレンダーを主ビューとしたシンプルで見やすいタスク管理アプリです。
