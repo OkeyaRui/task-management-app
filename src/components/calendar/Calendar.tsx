@@ -26,7 +26,7 @@ export const Calendar: React.FC<CalendarProps> = ({
   onNextMonth,
   onToday
 }) => {
-  const weekDays = ['日', '月', '火', '水', '木', '金', '土']
+  const weekDays = ['月', '火', '水', '木', '金', '土', '日']
   
   const formatMonthYear = (year: number, month: number) => {
     return `${year}年${month}月`
@@ -118,7 +118,7 @@ export const Calendar: React.FC<CalendarProps> = ({
                   day.isToday && 'text-primary-600 font-bold',
                   !day.isCurrentMonth && 'text-gray-400'
                 )}>
-                  {getDayOfMonthJST(day.date)}
+                  {new Date(day.date).getDate()}
                 </span>
                 {taskCount > 0 && (
                   <span className="text-xs text-gray-500 hidden sm:block">

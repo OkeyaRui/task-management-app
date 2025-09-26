@@ -53,14 +53,15 @@ export const getMonthEnd = (date: string): string => {
   return dayjs.tz(date, JST).endOf('month').format('YYYY-MM-DD')
 }
 
-export const getCalendarDays = (year: number, month: number, weekStart = 0) => {
+export const getCalendarDays = (year: number, month: number, weekStart = 1) => {
   const monthString = String(month).padStart(2, '0')
   const base = dayjs.tz(`${year}-${monthString}-01`, JST)
   const startOfMonth = base.startOf('month')
   const endOfMonth = base.endOf('month')
   
-  const startOfCalendar = startOfMonth.startOf('week').add(weekStart, 'day')
-  const endOfCalendar = endOfMonth.endOf('week').add(weekStart, 'day')
+  // 月曜日開始の週の開始日を計算
+  const startOfCalendar = startOfMonth.startOf('week').add(1, 'day')
+  const endOfCalendar = endOfMonth.endOf('week').add(1, 'day')
   
   const days = []
   let current = startOfCalendar
