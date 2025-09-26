@@ -64,8 +64,8 @@ export const UpcomingTasks: React.FC<UpcomingTasksProps> = ({
   
   if (upcomingTasks.length === 0) {
     return (
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+      <div className="bg-primary-50 rounded-lg shadow-sm border border-primary-200 p-6">
+        <h3 className="text-lg font-semibold text-primary-800 mb-4">
           直近のタスク
         </h3>
         <div className="text-center py-8">
@@ -83,12 +83,12 @@ export const UpcomingTasks: React.FC<UpcomingTasksProps> = ({
   }
   
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-      <div className="p-4 border-b border-gray-200">
-        <h3 className="text-lg font-semibold text-gray-900">
+    <div className="bg-primary-50 rounded-lg shadow-sm border border-primary-200">
+      <div className="p-4 border-b border-primary-200">
+        <h3 className="text-lg font-semibold text-primary-800">
           直近のタスク
         </h3>
-        <p className="text-sm text-gray-500 mt-1">
+        <p className="text-sm text-primary-600 mt-1">
           今日から7日以内の未完了タスク
         </p>
       </div>

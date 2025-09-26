@@ -47,10 +47,10 @@ export const TaskList: React.FC<TaskListProps> = ({
   })
   
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 h-full">
+    <div className="bg-primary-50 rounded-lg shadow-sm border border-primary-200 h-full">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200">
-        <h3 className="text-lg font-semibold text-gray-900">
+      <div className="flex items-center justify-between p-4 border-b border-primary-200">
+        <h3 className="text-lg font-semibold text-primary-800">
           {formatDate(date)}
         </h3>
         <Button

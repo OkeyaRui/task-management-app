@@ -47,10 +47,10 @@ export const Calendar: React.FC<CalendarProps> = ({
   }
   
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+    <div className="bg-primary-50 rounded-lg shadow-sm border border-primary-200">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200">
-        <h2 className="text-lg font-semibold text-gray-900">
+      <div className="flex items-center justify-between p-4 border-b border-primary-200">
+        <h2 className="text-lg font-semibold text-primary-800">
           {formatMonthYear(year, month)}
         </h2>
         <div className="flex items-center space-x-2">
@@ -82,11 +82,11 @@ export const Calendar: React.FC<CalendarProps> = ({
       </div>
       
       {/* Week Days */}
-      <div className="grid grid-cols-7 border-b border-gray-200">
+      <div className="grid grid-cols-7 border-b border-primary-200">
         {weekDays.map((day) => (
           <div
             key={day}
-            className="p-3 text-center text-sm font-medium text-gray-500 bg-gray-50"
+            className="p-3 text-center text-sm font-medium text-primary-600 bg-primary-100"
           >
             {day}
           </div>
@@ -112,8 +112,8 @@ export const Calendar: React.FC<CalendarProps> = ({
               key={day.date}
               onClick={() => onDateSelect(day.date)}
               className={cn(
-                'p-2 sm:p-3 text-left border-r border-b border-gray-200 hover:bg-gray-50 transition-colors min-h-[80px] sm:min-h-[100px]',
-                !day.isCurrentMonth && 'text-gray-400 bg-gray-50',
+                'p-2 sm:p-3 text-left border-r border-b border-primary-200 hover:bg-primary-100 transition-colors min-h-[80px] sm:min-h-[100px]',
+                !day.isCurrentMonth && 'text-primary-400 bg-primary-100',
                 // 今日の強調表示（四角い枠）
                 day.isToday && 'ring-2 ring-primary-500 ring-offset-1',
                 // 日曜日または祝日の背景色
@@ -135,7 +135,7 @@ export const Calendar: React.FC<CalendarProps> = ({
                   {getDayOfMonthJST(day.date)}
                 </span>
                 {taskCount > 0 && (
-                  <span className="text-xs text-gray-500 hidden sm:block">
+                  <span className="text-xs text-primary-600 hidden sm:block">
                     {taskCount}件
                   </span>
                 )}
@@ -165,7 +165,7 @@ export const Calendar: React.FC<CalendarProps> = ({
                     </div>
                   ))}
                   {taskCount > 2 && (
-                    <div className="text-xs text-gray-500">
+                    <div className="text-xs text-primary-600">
                       +{taskCount - 2}件
                     </div>
                   )}
