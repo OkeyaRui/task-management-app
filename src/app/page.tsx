@@ -317,9 +317,10 @@ export default function Home() {
             <div className="text-sm text-gray-500 mb-4">
               運営・管理：桶谷琉斐
             </div>
-            <p className="text-gray-600 mb-6">
-              自由自在にタスクを管理。ビジネスでもプライベートでも、あなたに寄り添うシステム。
-            </p>
+            <div className="text-gray-600 mb-6">
+              <p>自由自在にタスクを管理。</p>
+              <p>ビジネスでもプライベートでも、あなたに寄り添うシステム。</p>
+            </div>
             
             {/* アップデート情報 */}
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
@@ -328,7 +329,7 @@ export default function Home() {
               </h3>
               <div className="text-xs text-blue-700 space-y-2">
                 <div className="flex justify-between items-start">
-                  <span className="font-medium">2025-01-27</span>
+                  <span className="font-medium">2025-01-27 14:30</span>
                   <div className="text-right flex-1 ml-2">
                     <p>• カレンダー表示の改善（土日祝日の色分け）</p>
                     <p>• 祝日データの追加（2024-2025年）</p>
@@ -337,12 +338,34 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex justify-between items-start">
-                  <span className="font-medium">2025-01-26</span>
+                  <span className="font-medium">2025-01-26 16:45</span>
                   <div className="text-right flex-1 ml-2">
                     <p>• グレゴリオ暦カレンダー対応</p>
                     <p>• 祝日表示機能の実装</p>
                     <p>• 管理者情報の表示追加</p>
                   </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* 今後のアップデート情報 */}
+            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+              <h3 className="text-sm font-medium text-green-800 mb-2">
+                🚀 今後のアップデート情報
+              </h3>
+              <div className="text-xs text-green-700 space-y-2">
+                <div className="flex justify-between items-start">
+                  <span className="font-medium">予定中</span>
+                  <div className="text-right flex-1 ml-2">
+                    <p>• タスクの優先度フィルター機能強化</p>
+                    <p>• カレンダー表示のカスタマイズ機能</p>
+                    <p>• タスクの一括操作機能</p>
+                    <p>• モバイルアプリ対応</p>
+                    <p>• データエクスポート機能</p>
+                  </div>
+                </div>
+                <div className="text-xs text-green-600 mt-2 italic">
+                  ※ アップデート予定は変更される場合があります
                 </div>
               </div>
             </div>
